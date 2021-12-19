@@ -1,11 +1,11 @@
 ---
 
-- hosts: db
+- hosts: "3.227.176.4"
   roles:
     - mysql
     - database
 
-- hosts: wp    
+- hosts: "54.82.71.137"    
   roles:
     - webserver
     - wordpress
