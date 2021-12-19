@@ -1,0 +1,7 @@
+---
+
+- name: "install mysql"
+  apt: 
+    name: ['mysql-server', 'python3-mysqldb']
+    state: latest
+  become: yes 

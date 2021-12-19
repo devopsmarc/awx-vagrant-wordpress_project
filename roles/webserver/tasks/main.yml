@@ -1,0 +1,7 @@
+---
+
+- name: 'install apache2 & php7'
+  apt: 
+    name: ['php','apache2','libapache2-mod-php','php-gd','php-mysql']
+    state: latest
+  become: yes 

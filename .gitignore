@@ -1,0 +1,3 @@
+.vagrant/
+infra_aws_key
+infra_aws_key.pub

@@ -1,0 +1,29 @@
+*** modulos de administraçao de pacotes
+	- ubuntu & debian: apt
+	- redhat & centos: yum
+	- fedora : dnf
+
+*** check ansible files using: 
+	ansible-playbook --version
+
+*** After installing ansible on VM try connect to worpress VM using:
+	ansible wordpress -u vagrant --private-key vagrant_credentials -i hosts -m shell -a 'echo Hello, World'
+	ansible -vvvv wordpress -u vagrant --private-key vagrant_credentials -i hosts -m shell -a 'echo Hello, World'
+
+*** to send hosts and playbook.yml to VM (if not using script in vagrant file)
+	sudo ansible-playbook -i /vagrant/provision/hosts /vagrant/provision/playbook.yml
+
+*** Before writing the provisioning.yml playbook it's always good to test the playbook and VM connection with:
+
+	---
+    	- hosts: all
+  	  tasks:
+    	    - shell: 'echo hello > /vagrant/hello_world.txt' 
+
+*** #Ajustando o permissionamento
+	usermod -a -G apache ec2-user
+	chown -R ec2-user:apache /var/www
+
+https://qastack.com.br/ubuntu/693418/use-chown-to-set-the-ownership-of-all-a-folders-subfolders-and-files (to chown issues)
+
+

@@ -1,0 +1,9 @@
+[db]
+3.227.176.4 ansible_user=ubuntu ansible_ssh_private_key_file=/home/vagrant/.ssh/infra_aws_key
+; ansible_python_interpreter=/usr/bin/python3
+
+[wp]
+54.82.71.137 ansible_user=ubuntu ansible_ssh_private_key_file=/home/vagrant/.ssh/infra_aws_key
+
+[awx]
+54.159.162.207 ansible_user=ubuntu ansible_ssh_private_key_file=/home/vagrant/.ssh/infra_aws_key

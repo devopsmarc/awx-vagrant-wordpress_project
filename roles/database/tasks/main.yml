@@ -1,0 +1,29 @@
+---
+
+- name: "create mysql_db"
+  mysql_db:
+    name: "{{ wp_db_name }}"
+    login_user: root
+    state: present
+  become: yes
+
+- name: "create mysql_db user"
+  mysql_user:
+    login_user: root
+    name: "{{ wp_db_username }}"
+    password: "{{ wp_user_password }}"
+    priv: "{{ wp_db_name }}.*:ALL"
+    host: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ wp_host_ip }}"
+  become: yes  
+
+- name: "set mysql config to accept remote connection"
+  copy:
+    src: "files/mysqld.cnf"
+    dest: "/etc/mysql/mysql.conf.d/mysqld.cnf"
+    remote_src: no
+  become: yes
+  notify: 
+    - restart mysql
